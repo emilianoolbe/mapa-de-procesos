@@ -51,7 +51,7 @@ export const ProcesosEstrategicos = React.memo(
               estrategicos.map(proceso => {
   
                 return(
-  
+                  
                   <div onPointerEnter={() => {editar(proceso.id)}} className='procesos' key={proceso.id}>
                     <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
                 

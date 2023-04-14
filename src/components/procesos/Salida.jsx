@@ -17,6 +17,7 @@ export const Salida = React.memo(({salida, setSalida}) => {
     let procesos = JSON.parse(localStorage.getItem('Salida'));
     procesos === null && (procesos = []); // Si no al eliminar el localstorage da error de que no existe
     setSalida(procesos);
+    return procesos
   };
 
   const eliminar = (id) => {
@@ -24,6 +25,7 @@ export const Salida = React.memo(({salida, setSalida}) => {
     let proceso = handlerSalida();
 
     //Filtro todos los procesos !== al ID que llega
+    console.log(id);
     let procesos = proceso.filter(elemento => elemento.id !== id);
 
     //Seteo Estado
@@ -44,7 +46,7 @@ export const Salida = React.memo(({salida, setSalida}) => {
             return(
               <div onPointerEnter={() => {editar(proceso.id)}} className='entrada-salida' key={proceso.id}>
                   <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
-                <p onClick={() => {eliminar(proceso.id)}}><Icons  css='icon-trash-entrada' icon={faTrashCan}/></p>
+                  <p onClick={() => {eliminar(proceso.id)}}><Icons  css='icon-trash-entrada' icon={faTrashCan}/></p>
               </div>
             )
           })

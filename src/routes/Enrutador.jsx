@@ -6,7 +6,6 @@ import { Entrada } from '../components/procesos/Entrada'
 import { Salida } from '../components/procesos/Salida'
 import { ProcesosDeApoyo } from '../components/procesos/ProcesosDeApoyo'
 import { ProcesosEstrategicos } from '../components/procesos/ProcesosEstrategicos'
-import { ProcesosMisionales } from '../components/procesos/ProcesosMisionales'
 import { Mapa } from '../components/Mapa'
 
 export const Enrutador = () => {
