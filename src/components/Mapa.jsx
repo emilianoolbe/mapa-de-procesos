@@ -7,25 +7,27 @@ import { Salida } from './procesos/Salida'
 
 
 
-export const Mapa = ({estrategicos, setEstrategicos, misionales, setMisionales, apoyo, setApoyo, procesoEntrada, setProcesoEntrada, salida, setSalida}) => {
+export const Mapa = React.memo(
+  ({estrategicos, setEstrategicos, misionales, setMisionales, apoyo, setApoyo, procesoEntrada, setProcesoEntrada, salida, setSalida}) => {
    
 
-  return (
-    <>
-        {/* Procesos de entrada */}
-        <Entrada procesoEntrada={procesoEntrada} setProcesoEntrada={setProcesoEntrada}/>
-
-        {/* Procesos Estratégicos */}
-        <ProcesosEstrategicos estrategicos={estrategicos} setEstrategicos={setEstrategicos} />
-
-        {/* Procesos Misionales */}
-        <ProcesosMisionales misionales={misionales} setMisionales={setMisionales} />
-
-        {/* Procesos de Apoyo */}
-        <ProcesosDeApoyo apoyo={apoyo} setApoyo={setApoyo} />
-
-        {/* Procesos de salida */}
-        <Salida salida={salida} setSalida={setSalida} />
-    </>
-  )
-}
+    return (
+      <>
+          {/* Procesos de entrada */}
+          <Entrada procesoEntrada={procesoEntrada} setProcesoEntrada={setProcesoEntrada}/>
+  
+          {/* Procesos Estratégicos */}
+          <ProcesosEstrategicos estrategicos={estrategicos} setEstrategicos={setEstrategicos} />
+  
+          {/* Procesos Misionales */}
+          <ProcesosMisionales misionales={misionales} setMisionales={setMisionales} />
+  
+          {/* Procesos de Apoyo */}
+          <ProcesosDeApoyo apoyo={apoyo} setApoyo={setApoyo} />
+  
+          {/* Procesos de salida */}
+          <Salida salida={salida} setSalida={setSalida} />
+      </>
+    )
+  }
+);

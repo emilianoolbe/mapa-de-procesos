@@ -97,6 +97,16 @@
 .icon-trash:hover{
   color: #d84734;
 }
+.icon-trash-entrada{
+  font-size: small;
+  color: white;
+  transition: all 300ms;
+  margin-top: 10px;
+}
+.icon-trash-entrada:hover{
+  color: #d84734;
+}
+
 .icon-gear{
   color: white;
   transition: all 300ms;
@@ -278,4 +288,50 @@ h3{
 .procesos:hover{
   background-color: #a9b3c9;
   color: white;
+}
+
+.entrada div a{
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.entrada div a:hover{
+  color: #4a5b80;
+  transform: scale(1, 1.1);
+}
+.salida div a{
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.salida div a:hover{
+  color: #4a5b80;
+  transform: scale(1, 1.1);
+}
+.estrategicos div a{
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.estrategicos div a:hover{
+  color: #4a5b80;
+  transform: scale(1, 1.1);
+}
+.apoyo div a{
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.apoyo div a:hover{
+  color: #4a5b80;
+  transform: scale(1, 1.1);
+}
+.misionales div a{
+  text-decoration: none;
+  color: white;
+  transition: all 300ms;
+}
+.misionales div a:hover{
+  color: #4a5b80;
+  transform: scale(1, 1.1);
 }

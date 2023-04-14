@@ -1,42 +1,66 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Icons } from '../../../public/Icons';
+import { Link } from 'react-router-dom';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-export const Entrada = ({procesoEntrada, setProcesoEntrada}) => {
+export const Entrada = React.memo(
+  ({procesoEntrada, setProcesoEntrada}) => {
+
+    //Estados
+    const [edicion, setEdicion] =  useState(0);
+    
+    //Efectos
+    useEffect(() => { handlerEntrada()}, []);
   
-  //Efectos
-  useEffect(() => { handlerEntrada()}, []);
-
-  //Métodos
-  const handlerEntrada = () => {
-
-    let procesos = JSON.parse(localStorage.getItem('Entrada'));
-    procesos === null && (procesos = []); // Si no al eliminar el localstorage da error de que no existe
-    setProcesoEntrada(procesos);
-    return procesos;
-  };
-
-  if (procesoEntrada !== null && procesoEntrada.length >= 0) {
-    return (
-      <div className='entrada'>
-        {
-          procesoEntrada.map(proceso => {
-
-            return(
-              <div className='entrada-salida' key={proceso.id}>
-                <p>{proceso.titulo}</p>
-              </div>
-            )
-          })
-        }
-      </div>
-    );
-  }else{
-    return(
-
-      <div className='entrada'>
-        <div className='entrada-salida'>
-          Entrada
+    //Métodos
+    const handlerEntrada = () => {
+  
+      let procesos = JSON.parse(localStorage.getItem('Entrada'));
+      procesos === null && (procesos = []); // Si no al eliminar el localstorage da error de que no existe
+      setProcesoEntrada(procesos);
+      return procesos;
+    };
+  
+    const eliminar = (id) => {
+      //Obtego procesos
+      let proceso = handlerEntrada();
+  
+      //Filtro todos los procesos !== al id que llega
+      let procesos = proceso.filter(elemento => elemento.id !== id);
+  
+      //Seteo el estado
+      setProcesoEntrada(procesos);
+  
+      //Actualizo el localStorage
+      localStorage.setItem('Entrada', JSON.stringify(procesos));
+    };
+  
+    const editar = (id) => {setEdicion(id)};
+  
+    if (procesoEntrada !== null && procesoEntrada.length >= 0) {
+      return (
+        <div className='entrada'>
+          {
+            procesoEntrada.map(proceso => {
+              return(
+                <div onPointerEnter={() => {editar(proceso.id)}} className='entrada-salida' key={proceso.id}>
+                    <Link to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
+                  <p onClick={() => {eliminar(proceso.id)}}><Icons  css='icon-trash-entrada' icon={faTrashCan}/></p>
+                </div>
+              )
+            })
+          }
         </div>
-      </div>
-    )
-  };
-};
+      );
+    }else{
+  
+      return(
+        <div className='entrada'>
+          <div className='entrada-salida'>
+            Entrada
+          </div>
+        </div>
+      )
+    };
+  }
+);

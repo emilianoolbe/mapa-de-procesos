@@ -4,7 +4,7 @@ import { Icons } from '../../../public/Icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 
-export const ProcesosDeApoyo = ({apoyo, setApoyo}) => {
+export const ProcesosDeApoyo = React.memo(({apoyo, setApoyo}) => {
 
   //Estados
   const [edicion, setEdicion] = useState(0);
@@ -21,13 +21,13 @@ export const ProcesosDeApoyo = ({apoyo, setApoyo}) => {
     return procesos;
   };
   const eliminar = (id) => {
-    //Obtengo películas
+    //Obtengo los procesos
     let proceso = handlerApoyo();
 
-    //Filtro todas las películas que no sean iguales al id que llega 
+    //Filtro todas los procesos con id distinto al que llega 
     let procesos = proceso.filter(elemento =>  elemento.id !== parseInt(id))
  
-    //Seteo el nuevo estado del componente menos la película eliminada
+    //Seteo el nuevo estado del componente menos sin el proceso eliminado
     setApoyo(procesos);
  
     //Actualizo el localStorage
@@ -40,7 +40,7 @@ export const ProcesosDeApoyo = ({apoyo, setApoyo}) => {
 
   if (apoyo !== null && apoyo.length > 0) {
     return (
-      <div className='Apoyo'>
+      <div className='apoyo'>
         <div className='titulos'>
           <h3>Procesos Apoyo</h3>
         </div>
@@ -73,4 +73,4 @@ export const ProcesosDeApoyo = ({apoyo, setApoyo}) => {
       </div>
     )
   }
-};
+}); 

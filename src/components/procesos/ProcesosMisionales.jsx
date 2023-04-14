@@ -1,6 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
+import { Icons } from '../../../public/Icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-export const ProcesosMisionales = ({misionales, setMisionales}) => {
+export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
+
+  //Estados
+  const [edicion, setEdicion] = useState(0);
 
   //EFectos
   useEffect(() => { handlerMisionales()}, [])
@@ -13,6 +19,24 @@ export const ProcesosMisionales = ({misionales, setMisionales}) => {
     return procesos;
   };
 
+  const eliminar = (id) => {
+    //Obtengo los procesos 
+    let proceso = handlerMisionales();
+    
+    //Filtro todos los procesos menos el del ID que llega
+    let procesos = proceso.filter(elemento => elemento.id !== parseInt(id));
+
+    //Seteo el estado
+    setMisionales(procesos);
+
+    //Actualizo el localStorage
+    localStorage.setItem('Proceso Misional', JSON.stringify(procesos));
+  };
+
+  const editar = (id) => {
+    setEdicion(id);
+  };
+
   if (misionales !== null && misionales.length > 0) {
     return (
       <div className='misionales'>
@@ -23,8 +47,12 @@ export const ProcesosMisionales = ({misionales, setMisionales}) => {
           {
             misionales.map(proceso => {
               return(
-                <div className='procesos' key={proceso.id}>
-                  <p>{proceso.titulo}</p>
+                <div onPointerEnter={() => {editar(proceso.id)}} className='procesos' key={proceso.id}>
+                  <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
+              
+                  <div className='iconos'>
+                    <p onClick={() => {eliminar(proceso.id)}}><Icons  css='icon-trash' icon={faTrashCan}/></p>
+                  </div>
                 </div>
               )
             })
@@ -42,4 +70,5 @@ export const ProcesosMisionales = ({misionales, setMisionales}) => {
       </div>
     )
   };
-};
+}
+);
