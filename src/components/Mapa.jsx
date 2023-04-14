@@ -4,11 +4,12 @@ import { ProcesosEstrategicos } from './procesos/ProcesosEstrategicos'
 import { ProcesosMisionales } from './procesos/ProcesosMisionales'
 import { ProcesosDeApoyo } from './procesos/ProcesosDeApoyo'
 import { Salida } from './procesos/Salida'
+import { ProcesosEvaluacion } from './procesos/ProcesosEvaluacion'
 
 
 
 export const Mapa = React.memo(
-  ({estrategicos, setEstrategicos, misionales, setMisionales, apoyo, setApoyo, procesoEntrada, setProcesoEntrada, salida, setSalida}) => {
+  ({estrategicos, setEstrategicos, misionales, setMisionales, apoyo, setApoyo, procesoEntrada, setProcesoEntrada, salida, setSalida, evaluacion, setEvaluacion}) => {
    
 
     return (
@@ -24,6 +25,9 @@ export const Mapa = React.memo(
   
           {/* Procesos de Apoyo */}
           <ProcesosDeApoyo apoyo={apoyo} setApoyo={setApoyo} />
+
+          {/* Procesos de Evaluacion */}
+          <ProcesosEvaluacion evaluacion={evaluacion} setEvaluacion ={setEvaluacion}/>
   
           {/* Procesos de salida */}
           <Salida salida={salida} setSalida={setSalida} />

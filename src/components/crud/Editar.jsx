@@ -4,7 +4,7 @@ import { Icons } from '../../../public/Icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
 
-export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, misionales, apoyo, setProcesoEntrada, setSalida, procesoEntrada, salida}) => {
+export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, misionales, apoyo, setProcesoEntrada, setSalida, procesoEntrada, salida, evaluacion, setEvaluacion}) => {
 
   //Estados
   const [encontrado, setEncontrado] = useState([]);
@@ -42,6 +42,11 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
 
             let procesoSalida = salida.find(proceso => proceso.id === parseInt(id));
             setEncontrado(procesoSalida);
+
+            if (!procesoSalida) {
+              let procesoEvaluacion = evaluacion.find(proceso => proceso.id === parseInt(id));
+              setEncontrado(procesoEvaluacion);
+            };
           };
         };
       };
@@ -81,13 +86,16 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
 
     }else if (clave === 'Entrada'){
       setProcesoEntrada(procesos);
+
+    }else if (clave === 'Proceso de Evaluación'){
+      setEvaluacion(procesos);
+
     }else{
       setSalida(procesos);
     };    
     
     //Guardo el nuevo array en LocalStorage
-    localStorage.setItem(clave, JSON.stringify(procesos));  
- 
+    localStorage.setItem(clave, JSON.stringify(procesos));
   };
  
   return (

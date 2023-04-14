@@ -4,7 +4,7 @@ import { Icons } from '../../../public/Icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
 
-export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntrada, setSalida}) => {
+export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntrada, setSalida, setEvaluacion}) => {
 
   //Capturo información del formulario
   const handlerProcesos = e => {
@@ -38,14 +38,19 @@ export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntra
       setProcesoEntrada(elementos => {
         return [...elementos, proceso]
       });
-    }else{
+
+    }else if (proceso.proceso === 'Salida'){
       setSalida(elementos => {
         return [...elementos, proceso]
+      }); 
+    }else{
+      setEvaluacion(elementos => {
+        return [...elementos, proceso]
       });
-    };    
-     //Guardo información en localStorage
-     guardadoLocalStorage(proceso.proceso, proceso);
-  };
+    } 
+    //Guardo información en localStorage
+    guardadoLocalStorage(proceso.proceso, proceso);
+  }
 
   return (
     <div className= 'crear-container'>
@@ -58,6 +63,7 @@ export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntra
             <option>Proceso Estratégico</option>
             <option>Proceso Misional</option>
             <option>Proceso de Apoyo</option>
+            <option>Proceso de Evaluación</option>
             <option>Salida</option>
           </select>
 
