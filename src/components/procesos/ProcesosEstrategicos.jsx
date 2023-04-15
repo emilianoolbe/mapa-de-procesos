@@ -15,7 +15,7 @@ export const ProcesosEstrategicos = React.memo(
   
     //Métodos
     const handlerEstrategicos = () => {
-  
+    
       let procesos = JSON.parse(localStorage.getItem('Proceso Estratégico'));
       procesos === null && (procesos = []); // Si no al eliminar el localstorage da error de que no existe
       setEstrategicos(procesos);
@@ -38,7 +38,7 @@ export const ProcesosEstrategicos = React.memo(
     const editar = (id) => {
       setEdicion(id);
     };
-  
+   
     if (estrategicos !== null && estrategicos.length > 0) {
       return (
         <div className='estrategicos'>
@@ -52,7 +52,7 @@ export const ProcesosEstrategicos = React.memo(
   
                 return(
                   
-                  <div onPointerEnter={() => {editar(proceso.id)}} className='procesos' key={proceso.id}>
+                  <div onPointerEnter={() => {editar(proceso.id)}} className={proceso.color && proceso.color == 'Amarillo' ? 'procesos-amarillo' : proceso.color == 'Verde' ? 'procesos-verde' : proceso.color == 'Naranja' ? 'procesos-naranja' : proceso.color == 'Azul' ? 'procesos' : 'procesos'} key={proceso.id}>
                     <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
                 
                     <div className='iconos'>

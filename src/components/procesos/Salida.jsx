@@ -44,7 +44,7 @@ export const Salida = React.memo(({salida, setSalida}) => {
           salida.map(proceso => {
 
             return(
-              <div onPointerEnter={() => {editar(proceso.id)}} className='entrada-salida' key={proceso.id}>
+              <div onPointerEnter={() => {editar(proceso.id)}} className={proceso.color && proceso.color == 'Amarillo' ? 'entrada-salida-amarillo' : proceso.color == 'Verde' ? 'entrada-salida-verde' : proceso.color == 'Naranja' ? 'entrada-salida-naranja' : proceso.color == 'Azul' ? 'entrada-salida' : 'entrada-salida'} key={proceso.id}>
                   <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
                   <p onClick={() => {eliminar(proceso.id)}}><Icons  css='icon-trash-entrada' icon={faTrashCan}/></p>
               </div>

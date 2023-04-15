@@ -8,7 +8,7 @@ export const ProcesosEvaluacion = React.memo(({evaluacion, setEvaluacion}) => {
   const [edicion, setEdicion] = useState(0);
 
   //Efectos
-  useEffect(() => {
+  useEffect(() => { 
     handlerEvaluacion();
   }, []);
 
@@ -50,7 +50,7 @@ export const ProcesosEvaluacion = React.memo(({evaluacion, setEvaluacion}) => {
                 onPointerEnter={() => {
                   editar(proceso.id);
                 }}
-                className="procesos"
+                className={proceso.color && proceso.color == 'Amarillo' ? 'procesos-amarillo' : proceso.color == 'Verde' ? 'procesos-verde' : proceso.color == 'Naranja' ? 'procesos-naranja' : proceso.color == 'Azul' ? 'procesos' : 'procesos'}
                 key={proceso.id}
               >
                 <Link to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>

@@ -11,7 +11,6 @@ import { ProcesosEvaluacion } from './procesos/ProcesosEvaluacion'
 export const Mapa = React.memo(
   ({estrategicos, setEstrategicos, misionales, setMisionales, apoyo, setApoyo, procesoEntrada, setProcesoEntrada, salida, setSalida, evaluacion, setEvaluacion}) => {
    
-
     return (
       <>
           {/* Procesos de entrada */}

@@ -1,61 +1,56 @@
-
-.App{
-  width: 95%;
+.App {
+  width: 99%;
   height: 100vh;
-  margin:  0 auto;
+  margin-bottom: 90px;
   display: grid;
-  grid-template-areas:  'entrada estrategicos salida'
-                        'entrada misionales salida'
-                        'entrada apoyo salida'
-                        'entrada evaluacion salida';
+  grid-template-areas:
+    "entrada estrategicos salida"
+    "entrada misionales salida"
+    "entrada apoyo salida"
+    "entrada evaluacion salida";
   grid-template-columns: 0.2fr 1fr 0.2fr;
   grid-template-rows: 25% 25% 25% 25%;
   grid-row-gap: 25px;
   grid-column-gap: 20px;
 }
-.entrada{
+.entrada {
   grid-area: entrada;
   border: 2px solid #4a5b80;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.estrategicos{
+.estrategicos {
   grid-area: estrategicos;
   border: 3px solid #4a5b80;
   position: relative;
-
-
 }
-.misionales{
+.misionales {
   grid-area: misionales;
   border: 3px solid #4a5b80;
   position: relative;
-
 }
 
-.apoyo{
+.apoyo {
   grid-area: apoyo;
   border: 3px solid #4a5b80;
   position: relative;
-
 }
-.evaluacion{
+.evaluacion {
   grid-area: evaluacion;
   border: 3px solid #4a5b80;
   position: relative;
 }
-.salida{
+.salida {
   grid-area: salida;
   border: 3px solid #4a5b80;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 /* Crear */
-.crear-container{
+.crear-container {
   grid-area: misionales;
   width: 100%;
   display: flex;
@@ -64,7 +59,7 @@
   background-color: rgba(128, 144, 187, 0.11);
   position: relative;
 }
-.crear{
+.crear {
   position: relative;
   width: 70%;
   height: 70%;
@@ -74,59 +69,57 @@
   align-items: center;
 }
 /* Icon */
-.icon-agregar{
+.icon-agregar {
   position: absolute;
   top: 0;
   right: 0;
-  font-size:larger;
+  font-size: larger;
   color: white;
   background-color: #4a5b80;
   padding: 6px;
   transition: all 300ms;
 }
-.icon-agregar:hover{
+.icon-agregar:hover {
   color: #32af43;
   background-color: white;
-
 }
-.icon-xmark{
+.icon-xmark {
   position: absolute;
   top: 0;
   right: 0;
   font-size: x-large;
-  color:#6c89c9;
+  color: #6c89c9;
   padding: 6px;
   transition: all 300ms;
 }
-.icon-xmark:hover{
+.icon-xmark:hover {
   color: red;
 }
 
-.icon-trash{
+.icon-trash {
   color: white;
   transition: all 300ms;
 }
-.icon-trash:hover{
+.icon-trash:hover {
   color: #d84734;
 }
-.icon-trash-entrada{
+.icon-trash-entrada {
   font-size: small;
   color: white;
   transition: all 300ms;
   margin-top: 10px;
 }
-.icon-trash-entrada:hover{
+.icon-trash-entrada:hover {
   color: #d84734;
 }
-
-.icon-gear{
+.icon-gear {
   color: white;
   transition: all 300ms;
 }
-.icon-gear:hover{
+.icon-gear:hover {
   color: #4a5b80;
 }
-.iconos{
+.iconos {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,22 +127,21 @@
   top: 4px;
   right: 4px;
 }
-.iconos p{
- margin: 0px 5px 0px 0px;
- height: min-content;
- padding: 0;
+.iconos p {
+  margin: 0px 5px 0px 0px;
+  height: min-content;
+  padding: 0;
 }
 
 /* Crear*/
-.crear form{
+.crear form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 55%;
 }
-
-.crear form input[type= 'submit']{
+.crear form input[type="submit"] {
   width: 100%;
   padding: 5px;
   margin: 8px 0px 0px 0px;
@@ -158,13 +150,13 @@
   background-color: white;
   transition: all 300ms;
 }
-.crear form input[type= 'submit']:hover{
+.crear form input[type="submit"]:hover {
   background-color: #4a5b80;
   border-radius: 10px;
   color: white;
   font-weight: bold;
 }
-.crear form input[type= 'text']{
+.crear form input[type="text"] {
   width: 98%;
   text-align: center;
   padding: 5px;
@@ -173,8 +165,7 @@
   color: #6c89c9;
   background-color: white;
 }
-
-.crear form select{
+.crear form select {
   width: 100%;
   text-align: center;
   padding: 5px;
@@ -185,7 +176,7 @@
 }
 
 /* Editar */
-.editar-container{
+.editar-container {
   grid-area: misionales;
   width: 100%;
   display: flex;
@@ -194,7 +185,7 @@
   background-color: rgba(128, 144, 187, 0.11);
   border-radius: 5px;
 }
-.editar{
+.editar {
   border-radius: 5px;
   position: relative;
   width: 70%;
@@ -204,7 +195,7 @@
   justify-content: center;
   align-items: center;
 }
-.editar form{
+.editar form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,7 +203,7 @@
   width: 55%;
 }
 
-.editar form input[type= 'submit']{
+.editar form input[type="submit"] {
   width: 100%;
   padding: 5px;
   margin: 8px 0px 0px 0px;
@@ -221,13 +212,13 @@
   color: #6c89c9;
   transition: all 300ms;
 }
-.editar form input[type= 'submit']:hover{
+.editar form input[type="submit"]:hover {
   background-color: #4a5b80;
   border-radius: 10px;
   color: white;
   font-weight: bold;
 }
-.editar form input[type= 'text']{
+.editar form input[type="text"] {
   width: 98%;
   text-align: center;
   padding: 5px;
@@ -236,7 +227,7 @@
   color: #6c89c9;
   background-color: white;
 }
-.editar form select{
+.editar form select {
   width: 100%;
   text-align: center;
   padding: 5px;
@@ -246,23 +237,20 @@
   background-color: white;
 }
 
-
 /* PROCESOS */
-.titulos{
+.titulos {
   width: 35%;
   display: block;
   margin: 0 auto;
 }
-
-h3{
+h3 {
   background-color: #4a5b80;
   color: white;
   text-align: center;
   margin: 0;
   border-radius: 0px 0px 10px 10px;
 }
-
-.entrada-salida{
+.entrada-salida {
   width: 35%;
   height: 50%;
   display: flex;
@@ -276,16 +264,57 @@ h3{
   text-orientation: upright;
   font-size: 2em;
 }
-
-.procesos-container{
+.entrada-salida-amarillo {
+  width: 35%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bfc236;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 2em;
+}
+.entrada-salida-verde {
+  width: 35%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #59ca91;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 2em;
+}
+.entrada-salida-naranja {
+  width: 35%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1a541;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 2em;
+}
+.procesos-container {
   width: 100%;
   height: 75%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-.procesos{
+.procesos {
   width: 19%;
   height: 30%;
   display: flex;
@@ -295,16 +324,67 @@ h3{
   color: white;
   border-radius: 6px;
   font-size: 10px;
-  font-weight:500;
+  font-weight: 500;
   margin: 10px;
   transition: all 300ms;
   position: relative;
 }
-.procesos:hover{
+.procesos-verde {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #59ca91;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-amarillo {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfc236;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-naranja {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1a541;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos:hover,
+.procesos-amarillo:hover,
+.procesos-naranja:hover,
+.procesos-verde:hover {
   background-color: #a9b3c9;
   color: white;
 }
-.procesos::before {
+.procesos::before,
+.procesos-amarillo::before,
+.procesos-naranja::before,
+.procesos-verde::before {
   content: "";
   display: block;
   position: absolute;
@@ -315,61 +395,64 @@ h3{
   background-color: #4a5b80;
   transform: translateY(-50%);
 }
-.procesos:last-child:before {
+.procesos:last-child:before,
+.procesos-amarillo:last-child:before,
+.procesos-naranja:last-child:before,
+.procesos-verde:last-child:before {
   display: none; /* Para que la última flecha no se muestre */
 }
 
-.entrada div a{
+.entrada div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.entrada div a:hover{
+.entrada div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.salida div a{
+.salida div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.salida div a:hover{
+.salida div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.estrategicos div a{
+.estrategicos div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.estrategicos div a:hover{
+.estrategicos div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.apoyo div a{
+.apoyo div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.apoyo div a:hover{
+.apoyo div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.misionales div a{
+.misionales div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.misionales div a:hover{
+.misionales div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.evaluacion div a{
+.evaluacion div a {
   text-decoration: none;
   color: white;
   transition: all 300ms;
 }
-.evaluacion div a:hover{
+.evaluacion div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }

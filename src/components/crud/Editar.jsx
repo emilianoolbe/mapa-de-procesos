@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Icons } from '../../../public/Icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
+import { borradoLocalStorage } from '../../helpers/borradoLocalStorage';
 
 export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, misionales, apoyo, setProcesoEntrada, setSalida, procesoEntrada, salida, evaluacion, setEvaluacion}) => {
 
@@ -18,8 +19,11 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
   let {id} = useParams();
 
   //Métodos
+
   const handlerEncontrado = () => {
     
+    //Primero busco en que estado se encuentra el elemento que me llega por ID
+    //Luego de encontrado dicho elemento, lo guardo en un nuevo estado(encontrado)
     let procesoEstrategico = estrategicos.find(proceso => proceso.id === parseInt(id));
     setEncontrado(procesoEstrategico);
 
@@ -53,59 +57,110 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
     };
   };
 
-  const handlerEdicion = (e, id, clave) =>{
+  const handlerEdicion = (e, id) =>{
     e.preventDefault();
     
-    //Obtengo los procesos guarado en LocalStorage
-    let procesos = JSON.parse(localStorage.getItem(clave));
+    //Obtengo los procesos guardados en LocalStorage
+    let procesos = JSON.parse(localStorage.getItem(e.target.proceso.value));
     procesos === null && (procesos = []);
 
     //Busco el índice del proceso en LocalStorage
     let indice = procesos.findIndex(elemento => elemento.id === id)
-
-    //Creo un objeto nuevo con el ID y los datos obtenidos por el formulario
+    
+    //Creo un objeto nuevo con el ID y los datos obtenidos del formulario
     let procesoAEditar = {
       id,
       titulo: e.target.titulo.value,
+      proceso: e.target.proceso.value,
+      color: e.target.color.value
     };
 
-    //Actualizo el array del LocalStorage en el índice encontrado y le asigno el objeto nuevo
-    procesos[indice] = procesoAEditar;
+     //Si índice es === -1 es porque no se encuentra ese ID en el LOcalStorage
+     if (indice === -1) {
 
-    //Actualizo estados
-    if (clave=== 'Proceso Estratégico') {
+      //Guardo en localStorage si se cambia de proceso
+      guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
 
-      setEstrategicos(procesos);
+      //Elimino del localStorage anterior
+      borradoLocalStorage(encontrado.proceso, encontrado);
 
-    }else if(clave === 'Proceso Misional'){
+       //Actualizo estados
+      if (e.target.proceso.value === 'Proceso Estratégico') {
 
-      setMisionales(procesos);
+        setEstrategicos(elemento => {return [...elemento, procesoAEditar]});
 
-    }else if(clave === 'Proceso de Apoyo'){
-      setApoyo(procesos);
+      }else if(e.target.proceso.value === 'Proceso Misional'){
 
-    }else if (clave === 'Entrada'){
-      setProcesoEntrada(procesos);
+        setMisionales(elemento => {return [...elemento, procesoAEditar]});
 
-    }else if (clave === 'Proceso de Evaluación'){
-      setEvaluacion(procesos);
+      }else if(e.target.proceso.value === 'Proceso de Apoyo'){
+        setApoyo(elemento => {return [...elemento, procesoAEditar]});
 
+      }else if (e.target.proceso.value === 'Entrada'){
+        setProcesoEntrada(elemento => {return [...elemento, procesoAEditar]});
+
+      }else if (e.target.proceso.value === 'Proceso de Evaluación'){
+        setEvaluacion(elemento => {return [...elemento, procesoAEditar]});
+
+      }else{
+        setSalida(elemento => {return [...elemento, procesoAEditar]});
+      };
+      
     }else{
-      setSalida(procesos);
-    };    
+      //SI  indice es !== -1 Actualizo el array del LocalStorage en el índice encontrado y le asigno el objeto nuevo
+      procesos[indice] = procesoAEditar;
+
+      //Actualizo estados
+      if (e.target.proceso.value === 'Proceso Estratégico') {
+
+        setEstrategicos(procesos);
+
+      }else if(e.target.proceso.value === 'Proceso Misional'){
+
+        setMisionales(procesos);
+
+      }else if(e.target.proceso.value === 'Proceso de Apoyo'){
+        setApoyo(procesos);
+
+      }else if (e.target.proceso.value === 'Entrada'){
+        setProcesoEntrada(procesos);
+
+      }else if (e.target.proceso.value === 'Proceso de Evaluación'){
+        setEvaluacion(procesos);
+
+      }else{
+        setSalida(procesos);
+      };  
+
+      //Guardo el nuevo array en LocalStorage
+      localStorage.setItem(e.target.proceso.value, JSON.stringify(procesos));
+      };
     
-    //Guardo el nuevo array en LocalStorage
-    localStorage.setItem(clave, JSON.stringify(procesos));
   };
- 
   return (
     <div className= 'editar-container'>
       <div className='editar'>
       <Link  to={`${import.meta.env.VITE_URL}/`}> <Icons icon={faXmark} css='icon-xmark'/></Link>
 
-        <form  onSubmit={e => handlerEdicion(e, encontrado.id, encontrado.proceso)}>
-       
-          <input type="text" name="titulo" defaultValue={encontrado.titulo}/>
+        <form  onSubmit={e => handlerEdicion(e, encontrado.id)}>
+          
+          <input type="text" name="titulo" defaultValue={encontrado.titulo}/> 
+
+          <select name="proceso">
+            <option >Entrada</option>
+            <option >Proceso Estratégico</option>
+            <option >Proceso Misional</option>
+            <option >Proceso de Apoyo</option>
+            <option >Proceso de Evaluación</option>
+            <option >Salida</option>
+          </select>
+
+          <select name='color'>
+              <option>Azul</option>
+              <option>Verde</option>
+              <option>Amarillo</option>
+              <option>Naranja</option>
+          </select>
           <input type="submit" value="Editar" />
         </form>
       </div>

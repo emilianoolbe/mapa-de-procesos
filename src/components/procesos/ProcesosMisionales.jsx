@@ -47,7 +47,7 @@ export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
           {
             misionales.map(proceso => {
               return(
-                <div onPointerEnter={() => {editar(proceso.id)}} className='procesos' key={proceso.id}>
+                <div onPointerEnter={() => {editar(proceso.id)}} className={proceso.color && proceso.color == 'Amarillo' ? 'procesos-amarillo' : proceso.color == 'Verde' ? 'procesos-verde' : proceso.color == 'Naranja' ? 'procesos-naranja' : proceso.color == 'Azul' ? 'procesos' : 'procesos'} key={proceso.id}>
                   <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
               
                   <div className='iconos'>
