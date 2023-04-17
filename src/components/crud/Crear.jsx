@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { Icons } from '../../../public/Icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
+import { Toaster } from 'sonner';
+
 
 export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntrada, setSalida, setEvaluacion}) => {
+
 
   //Capturo información del formulario
   const handlerProcesos = e => {
@@ -68,8 +71,12 @@ export const Crear = ({setEstrategicos, setMisionales, setApoyo, setProcesoEntra
           </select>
 
           <input type="text" name="titulo" placeholder='Título'/>
-          <input type="submit" value="Agregar" />
+          <input type="submit" value="Agregar"  />
+          <div>
+  
+    </div>
         </form>
+        <Toaster />
       </div>
     </div> 
   )
