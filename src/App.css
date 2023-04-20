@@ -15,10 +15,12 @@
 }
 .entrada {
   grid-area: entrada;
-  border: 2px solid #4a5b80;
+  border: 3px solid #4a5b80;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
 }
 .estrategicos {
   grid-area: estrategicos;
@@ -381,10 +383,78 @@ h3 {
   background-color: #a9b3c9;
   color: white;
 }
-.procesos::before,
-.procesos-amarillo::before,
-.procesos-naranja::before,
-.procesos-verde::before {
+
+.procesos-misionales {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6c89c9;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales-verde {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #59ca91;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales-amarillo {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfc236;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales-naranja {
+  width: 19%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1a541;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales:hover,
+.procesos-misionales-amarillo:hover,
+.procesos-misionales-naranja:hover,
+.procesos-misionales-verde:hover {
+  background-color: #a9b3c9;
+  color: white;
+}
+.procesos-misionales::before,
+.procesos-misionales-amarillo::before,
+.procesos-misionales-naranja::before,
+.procesos-misionales-verde::before {
   content: "";
   display: block;
   position: absolute;
@@ -395,12 +465,13 @@ h3 {
   background-color: #4a5b80;
   transform: translateY(-50%);
 }
-.procesos:last-child:before,
-.procesos-amarillo:last-child:before,
-.procesos-naranja:last-child:before,
-.procesos-verde:last-child:before {
+.procesos-misionales:last-child:before,
+.procesos-misionales-amarillo:last-child:before,
+.procesos-misionales-naranja:last-child:before,
+.procesos-misionales-verde:last-child:before {
   display: none; /* Para que la última flecha no se muestre */
 }
+
 
 .entrada div a {
   text-decoration: none;

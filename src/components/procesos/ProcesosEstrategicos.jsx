@@ -42,7 +42,7 @@ export const ProcesosEstrategicos = React.memo(
     if (estrategicos !== null && estrategicos.length > 0) {
       return (
         <div className='estrategicos'>
-          <Link to={`${import.meta.env.VITE_URL}/crear`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+          <Link to={`${import.meta.env.VITE_URL}/crear/estrategicos`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
           <div className='titulos'>
             <h3>Procesos Estratégicos</h3>
           </div>
@@ -68,7 +68,7 @@ export const ProcesosEstrategicos = React.memo(
     }else{
       return (
         <div className='estrategicos'>
-          <Link to={`${import.meta.env.VITE_URL}/crear`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+          <Link to={`${import.meta.env.VITE_URL}/crear/estrategicos`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
           <div className='titulos'>
             <h3>Procesos Estratégicos</h3>
   

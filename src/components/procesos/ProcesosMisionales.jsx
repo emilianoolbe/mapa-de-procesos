@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../public/Icons';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
 
@@ -40,6 +40,8 @@ export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
   if (misionales !== null && misionales.length > 0) {
     return (
       <div className='misionales'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/misional`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+    
         <div className='titulos'>
           <h3>Procesos Misionales</h3>
         </div>
@@ -47,7 +49,7 @@ export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
           {
             misionales.map(proceso => {
               return(
-                <div onPointerEnter={() => {editar(proceso.id)}} className={proceso.color && proceso.color == 'Amarillo' ? 'procesos-amarillo' : proceso.color == 'Verde' ? 'procesos-verde' : proceso.color == 'Naranja' ? 'procesos-naranja' : proceso.color == 'Azul' ? 'procesos' : 'procesos'} key={proceso.id}>
+                <div onPointerEnter={() => {editar(proceso.id)}} className={proceso.color && proceso.color == 'Amarillo' ? 'procesos-misionales-amarillo' : proceso.color == 'Verde' ? 'procesos-misionales-verde' : proceso.color == 'Naranja' ? 'procesos-misionales-naranja' : proceso.color == 'Azul' ? 'procesos-misionales' : 'procesos-misionales'} key={proceso.id}>
                   <Link  to={`${import.meta.env.VITE_URL}/editar/${edicion}`}>{proceso.titulo}</Link>
               
                   <div className='iconos'>
@@ -64,6 +66,8 @@ export const ProcesosMisionales = React.memo(({misionales, setMisionales}) => {
     return (
 
       <div className='misionales'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/misional`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         <div className='titulos'>
           <h3>Procesos Misionales</h3>
         </div>
