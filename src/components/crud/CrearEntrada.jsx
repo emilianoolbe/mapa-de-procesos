@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +6,12 @@ import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
 
 export const CrearEntrada = ({procesoEntrada, setProcesoEntrada, errores, setErrores}) => {
+
+  //Efectos 
+  useEffect(() => {
+    setErrores('Cantidad máxima de procesos alcanzada');
+  }, []);
+
   //Capturo información del formulario
   const handlerProcesos = (e) => {
     e.preventDefault();
