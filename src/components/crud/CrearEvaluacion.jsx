@@ -18,19 +18,19 @@ export const CrearEvaluacion = ({evaluacion, setEvaluacion, errores, setErrores}
     };
   
     //Guardo información en el estado - limito a 5 elementos a guardar
-    if (evaluacion.length < 5) {
+    if (evaluacion.length < 4) {
       
     setEvaluacion((elementos) => {
       return [...elementos, proceso];
     });
       guardadoLocalStorage(proceso.proceso, proceso);
     };
-    if (evaluacion.length <= 5) {
+    if (evaluacion.length <= 4) {
         setErrores('Cantidad máxima de procesos alcanzada');
     };
   };
 
-  if (evaluacion.length >= 5) {
+  if (evaluacion.length >= 4) {
     return(
       <div className="crear-container">
         <div className="crear">

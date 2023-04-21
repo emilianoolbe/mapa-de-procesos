@@ -133,6 +133,34 @@
   padding: 0;
 }
 
+.iconos-misionales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  left: 120px;
+
+}
+.iconos-misionales:hover {
+  color: #d84734;
+}
+.iconos-misionales p {
+  margin: 0px 5px 0px 0px;
+  height: min-content;
+  padding: 0;
+}
+
+.icon-back-misional{
+  font-size: 3rem;
+  color:white;
+}
+.icon-back-misional:hover{
+  font-size: 3rem;
+  color:#59ca91;
+}
+
+
 /* Crear*/
 .crear form {
   display: flex;
@@ -309,11 +337,12 @@ h3 {
 }
 .procesos-container {
   width: 100%;
-  height: 75%;
+  height: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .procesos {
   width: 19%;
@@ -324,7 +353,7 @@ h3 {
   background-color: #6c89c9;
   color: white;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
   transition: all 300ms;
@@ -383,38 +412,44 @@ h3 {
   color: white;
 }
 .procesos-misionales {
-  width: 19%;
-  height: 30%;
+  width: 15%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #6c89c9;
   color: white;
-  border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
   transition: all 300ms;
   position: relative;
 }
+
 .procesos-misionales-verde {
-  width: 19%;
-  height: 30%;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #59ca91;
   color: white;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
   transition: all 300ms;
   position: relative;
 }
 .procesos-misionales-amarillo {
-  width: 19%;
-  height: 30%;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -428,8 +463,10 @@ h3 {
   position: relative;
 }
 .procesos-misionales-naranja {
-  width: 19%;
-  height: 30%;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -449,7 +486,7 @@ h3 {
   background-color: #a9b3c9;
   color: white;
 }
-.procesos-misionales::before,
+
 .procesos-misionales-amarillo::before,
 .procesos-misionales-naranja::before,
 .procesos-misionales-verde::before {
@@ -463,12 +500,7 @@ h3 {
   background-color: #4a5b80;
   transform: translateY(-50%);
 }
-.procesos-misionales:last-child:before,
-.procesos-misionales-amarillo:last-child:before,
-.procesos-misionales-naranja:last-child:before,
-.procesos-misionales-verde:last-child:before {
-  display: none; /* Para que la última flecha no se muestre */
-}
+
 .entrada div a {
   text-decoration: none;
   color: white;
@@ -533,4 +565,9 @@ h3 {
   bottom: 0;
   margin: -2px;
   color: #ec1e0b;
+}
+
+.back-proceso-misionales{
+  position: absolute;
+  bottom: -19px;
 }

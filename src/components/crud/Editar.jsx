@@ -81,7 +81,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
 
       setErrores('No se puede editar - límite de procesos alcanzado')
       //Actualizo estados
-      if (e.target.proceso.value === 'Proceso Estratégico' && estrategicos.length < 5) {
+      if (e.target.proceso.value === 'Proceso Estratégico' && estrategicos.length < 4) {
          
           setEstrategicos(elemento => {return [...elemento, procesoAEditar]});
 
@@ -92,7 +92,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
           borradoLocalStorage(encontrado.proceso, encontrado);
           setErrores('');
         
-      }else if(e.target.proceso.value === 'Proceso Misional' && misionales.length < 5){
+      }else if(e.target.proceso.value === 'Proceso Misional' && misionales.length < 4){
          
           setMisionales(elemento => {return [...elemento, procesoAEditar]});
 
@@ -103,7 +103,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
           borradoLocalStorage(encontrado.proceso, encontrado);
           setErrores('');
           
-      }else if(e.target.proceso.value === 'Proceso de Apoyo' && apoyo.length < 5){
+      }else if(e.target.proceso.value === 'Proceso de Apoyo' && apoyo.length < 4){
 
         setApoyo(elemento => {return [...elemento, procesoAEditar]});
           
@@ -125,7 +125,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
           borradoLocalStorage(encontrado.proceso, encontrado);
           setErrores('');
 
-      }else if (e.target.proceso.value === 'Proceso de Evaluación' && evaluacion.length < 5){
+      }else if (e.target.proceso.value === 'Proceso de Evaluación' && evaluacion.length < 4){
     
           setEvaluacion(elemento => {return [...elemento, procesoAEditar]});
 

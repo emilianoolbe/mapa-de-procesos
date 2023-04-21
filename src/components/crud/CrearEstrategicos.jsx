@@ -20,19 +20,19 @@ export const CrearEstrategicos = ({estrategicos, setEstrategicos, errores, setEr
     };
 
     //Guardo información en el estado - limito a 5 elementos a guardar
-    if (estrategicos.length < 5) {
+    if (estrategicos.length < 4) {
       
       setEstrategicos((elementos) => {
         return [...elementos, proceso];
       });
       guardadoLocalStorage(proceso.proceso, proceso);
     };
-    if (estrategicos.length <= 5) {
+    if (estrategicos.length <= 4) {
       setErrores('Cantidad máxima de procesos alcanzada');
     };
   };
 
-  if (estrategicos.length >= 5) {
+  if (estrategicos.length >= 4) {
     return(
       <div className="crear-container">
         <div className="crear">

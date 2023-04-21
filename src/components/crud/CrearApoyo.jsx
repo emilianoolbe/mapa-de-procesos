@@ -18,19 +18,19 @@ export const CrearApoyo = ({apoyo, setApoyo, errores, setErrores}) => {
     };
   
      //Guardo información en el estado - limito a 5 elementos a guardar
-     if (apoyo.length < 5) {
+     if (apoyo.length < 4) {
       
       setApoyo((elementos) => {
         return [...elementos, proceso];
       });
       guardadoLocalStorage(proceso.proceso, proceso);
     };
-    if (apoyo.length <= 5) {
+    if (apoyo.length <= 4) {
       setErrores('Cantidad máxima de procesos alcanzada');
     };
   };
 
-  if (apoyo.length >= 5) {
+  if (apoyo.length >= 4) {
     return(
       <div className="crear-container">
         <div className="crear">

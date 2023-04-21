@@ -18,7 +18,7 @@ export const CrearMisional = ({misionales, setMisionales, errores, setErrores}) 
     };
   
     //Guardo información en el estado - limito a 5 elementos a guardar
-    if (misionales.length < 5) {
+    if (misionales.length < 4) {
       
       setMisionales((elementos) => {
         return [...elementos, proceso];
@@ -26,12 +26,12 @@ export const CrearMisional = ({misionales, setMisionales, errores, setErrores}) 
       //Guardo información en localStorage
       guardadoLocalStorage(proceso.proceso, proceso);
     };
-    if (misionales.length <= 5) {
+    if (misionales.length <= 4) {
       setErrores('Cantidad máxima de procesos alcanzada');
     };
   };
 
-  if (misionales.length >= 5) {
+  if (misionales.length >= 4) {
     return(
       <div className="crear-container">
         <div className="crear">
