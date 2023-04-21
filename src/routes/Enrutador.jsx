@@ -24,7 +24,8 @@ export const Enrutador = React.memo(
     const [procesoEntrada, setProcesoEntrada] = useState([]);
     const [salida, setSalida] = useState([]);
     const [evaluacion, setEvaluacion] = useState([]);
-  
+    const [errores, setErrores] = useState('')
+
     return (
       <>
           <BrowserRouter>
@@ -36,14 +37,14 @@ export const Enrutador = React.memo(
   
               <Routes>
                   <Route path={import.meta.env.VITE_URL} element= {<Mapa evaluacion={evaluacion} setEvaluacion={setEvaluacion} estrategicos={estrategicos} setEstrategicos={setEstrategicos} misionales={misionales} setMisionales={setMisionales} apoyo={apoyo} setApoyo={setApoyo} procesoEntrada={procesoEntrada} setProcesoEntrada= {setProcesoEntrada} salida={salida} setSalida={setSalida} />} />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/estrategicos`} element={ <CrearEstrategicos setEstrategicos={setEstrategicos} /> } />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/misional`} element={<CrearMisional setMisionales= {setMisionales} />} />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/apoyo`} element={<CrearApoyo setApoyo={setApoyo} />} />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/evaluacion`} element={<CrearEvaluacion setEvaluacion={setEvaluacion} />} />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/entrada`} element={<CrearEntrada setProcesoEntrada={setProcesoEntrada} />} />
-                  <Route path={`${import.meta.env.VITE_URL}/crear/salida`} element={<CrearSalida setSalida={setSalida} />} />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/estrategicos`} element={ <CrearEstrategicos estrategicos={estrategicos} setEstrategicos={setEstrategicos} errores={errores} setErrores={setErrores}/> } />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/misional`} element={<CrearMisional setMisionales= {setMisionales} misionales={misionales} errores={errores} setErrores={setErrores} />} />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/apoyo`} element={<CrearApoyo setApoyo={setApoyo} apoyo={apoyo} errores={errores} setErrores={setErrores} />} />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/evaluacion`} element={<CrearEvaluacion setEvaluacion={setEvaluacion} evaluacion={evaluacion} errores={errores} setErrores={setErrores} />} />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/entrada`} element={<CrearEntrada setProcesoEntrada={setProcesoEntrada} procesoEntrada={procesoEntrada} errores={errores} setErrores={setErrores} />} />
+                  <Route path={`${import.meta.env.VITE_URL}/crear/salida`} element={<CrearSalida salida={salida} setSalida={setSalida} errores={errores} setErrores={setErrores} />} />
 
-                  <Route path={`${import.meta.env.VITE_URL}/editar/:id`} element={<Editar evaluacion={evaluacion} setEvaluacion={setEvaluacion} procesoEntrada={procesoEntrada} setProcesoEntrada={setProcesoEntrada} salida= {salida} setSalida= {setSalida} estrategicos={estrategicos} misionales={misionales} apoyo= {apoyo} setEstrategicos={setEstrategicos} setMisionales= {setMisionales} setApoyo={setApoyo}/>} />
+                  <Route path={`${import.meta.env.VITE_URL}/editar/:id`} element={<Editar evaluacion={evaluacion} setEvaluacion={setEvaluacion} procesoEntrada={procesoEntrada} setProcesoEntrada={setProcesoEntrada} salida= {salida} setSalida= {setSalida} estrategicos={estrategicos} misionales={misionales} apoyo= {apoyo} setEstrategicos={setEstrategicos} setMisionales= {setMisionales} setApoyo={setApoyo} errores={errores} setErrores={setErrores}/>} />
               </Routes>
   
               {/* Procesos de Apoyo */}

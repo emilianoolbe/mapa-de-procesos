@@ -20,7 +20,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
 }
 .estrategicos {
   grid-area: estrategicos;
@@ -32,7 +31,6 @@
   border: 3px solid #4a5b80;
   position: relative;
 }
-
 .apoyo {
   grid-area: apoyo;
   border: 3px solid #4a5b80;
@@ -56,6 +54,7 @@
   grid-area: misionales;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(128, 144, 187, 0.11);
@@ -97,7 +96,6 @@
 .icon-xmark:hover {
   color: red;
 }
-
 .icon-trash {
   color: white;
   transition: all 300ms;
@@ -186,6 +184,8 @@
   align-items: center;
   background-color: rgba(128, 144, 187, 0.11);
   border-radius: 5px;
+  flex-direction: column;
+  position: relative;
 }
 .editar {
   border-radius: 5px;
@@ -204,7 +204,6 @@
   flex-direction: column;
   width: 55%;
 }
-
 .editar form input[type="submit"] {
   width: 100%;
   padding: 5px;
@@ -383,7 +382,6 @@ h3 {
   background-color: #a9b3c9;
   color: white;
 }
-
 .procesos-misionales {
   width: 19%;
   height: 30%;
@@ -471,8 +469,6 @@ h3 {
 .procesos-misionales-verde:last-child:before {
   display: none; /* Para que la última flecha no se muestre */
 }
-
-
 .entrada div a {
   text-decoration: none;
   color: white;
@@ -526,4 +522,15 @@ h3 {
 .evaluacion div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
+}
+.errores{
+  color: #d84734;
+  border-bottom: 1px dashed #d84734;
+}
+
+.errores-editar{
+  position: absolute;
+  bottom: 0;
+  margin: -2px;
+  color: #ec1e0b;
 }

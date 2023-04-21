@@ -4,7 +4,7 @@ import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
-export const CrearMisional = ({setMisionales}) => {
+export const CrearMisional = ({misionales, setMisionales, errores, setErrores}) => {
 
   //Capturo información del formulario
   const handlerProcesos = (e) => {
@@ -17,14 +17,33 @@ export const CrearMisional = ({setMisionales}) => {
       proceso: e.target.proceso.value,
     };
   
-    setMisionales((elementos) => {
-      return [...elementos, proceso];
-    });
-   
-    //Guardo información en localStorage
-    guardadoLocalStorage(proceso.proceso, proceso);
+    //Guardo información en el estado - limito a 5 elementos a guardar
+    if (misionales.length < 5) {
+      
+      setMisionales((elementos) => {
+        return [...elementos, proceso];
+      });
+      //Guardo información en localStorage
+      guardadoLocalStorage(proceso.proceso, proceso);
+    };
+    if (misionales.length <= 5) {
+      setErrores('Cantidad máxima de procesos alcanzada');
+    };
   };
 
+  if (misionales.length >= 5) {
+    return(
+      <div className="crear-container">
+        <div className="crear">
+        <Link to={`${import.meta.env.VITE_URL}/`}>
+          {" "}
+          <Icons icon={faXmark} css="icon-xmark" />
+        </Link>
+          <h4 className="errores">{errores}</h4>
+        </div>     
+      </div>
+    )
+  }
   return (
     <div className="crear-container">
       <div className="crear">

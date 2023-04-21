@@ -1,9 +1,12 @@
+import React from 'react'
 import { Link } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
-export const CrearEstrategicos = ({setEstrategicos}) => {
+export const CrearEstrategicos = ({estrategicos, setEstrategicos, errores, setErrores}) => {
+
+  //Estados
     
    //Capturo información del formulario
    const handlerProcesos = (e) => {
@@ -16,17 +19,34 @@ export const CrearEstrategicos = ({setEstrategicos}) => {
       proceso: e.target.proceso.value,
     };
 
-    //Guardo información en el estado
+    //Guardo información en el estado - limito a 5 elementos a guardar
+    if (estrategicos.length < 5) {
+      
       setEstrategicos((elementos) => {
         return [...elementos, proceso];
       });
-   
-    //Guardo información en localStorage
-    guardadoLocalStorage(proceso.proceso, proceso);
+      guardadoLocalStorage(proceso.proceso, proceso);
+    };
+    if (estrategicos.length <= 5) {
+      setErrores('Cantidad máxima de procesos alcanzada');
+    };
   };
 
+  if (estrategicos.length >= 5) {
+    return(
+      <div className="crear-container">
+        <div className="crear">
+        <Link to={`${import.meta.env.VITE_URL}/`}>
+          {" "}
+          <Icons icon={faXmark} css="icon-xmark" />
+        </Link>
+          <h4 className="errores">{errores}</h4>
+        </div>     
+      </div>
+    )
+  }
   return (
- 
+    
     <div className="crear-container">
       <div className="crear">
         <Link to={`${import.meta.env.VITE_URL}/`}>
@@ -47,9 +67,10 @@ export const CrearEstrategicos = ({setEstrategicos}) => {
 
           <input type="text" name="titulo" placeholder="Título" />
           <input type="submit" value="Agregar" />
-          <div></div>
+          
         </form>
-      </div>
+          
+      </div>     
     </div>
     
   );

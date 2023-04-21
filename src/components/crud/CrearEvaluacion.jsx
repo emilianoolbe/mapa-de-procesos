@@ -5,7 +5,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
 
-export const CrearEvaluacion = ({setEvaluacion}) => {
+export const CrearEvaluacion = ({evaluacion, setEvaluacion, errores, setErrores}) => {
   //Capturo información del formulario
   const handlerProcesos = (e) => {
     e.preventDefault();
@@ -17,14 +17,32 @@ export const CrearEvaluacion = ({setEvaluacion}) => {
       proceso: e.target.proceso.value,
     };
   
+    //Guardo información en el estado - limito a 5 elementos a guardar
+    if (evaluacion.length < 5) {
+      
     setEvaluacion((elementos) => {
       return [...elementos, proceso];
     });
-   
-    //Guardo información en localStorage
-    guardadoLocalStorage(proceso.proceso, proceso);
+      guardadoLocalStorage(proceso.proceso, proceso);
+    };
+    if (evaluacion.length <= 5) {
+        setErrores('Cantidad máxima de procesos alcanzada');
+    };
   };
 
+  if (evaluacion.length >= 5) {
+    return(
+      <div className="crear-container">
+        <div className="crear">
+        <Link to={`${import.meta.env.VITE_URL}/`}>
+          {" "}
+          <Icons icon={faXmark} css="icon-xmark" />
+        </Link>
+          <h4 className="errores">{errores}</h4>
+        </div>     
+      </div>
+    )
+  }
   return (
     <div className="crear-container">
       <div className="crear">
