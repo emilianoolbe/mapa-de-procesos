@@ -15,10 +15,11 @@
 }
 .entrada {
   grid-area: entrada;
-  border: 2px solid #4a5b80;
+  border: 3px solid #4a5b80;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .estrategicos {
   grid-area: estrategicos;
@@ -30,7 +31,6 @@
   border: 3px solid #4a5b80;
   position: relative;
 }
-
 .apoyo {
   grid-area: apoyo;
   border: 3px solid #4a5b80;
@@ -54,6 +54,7 @@
   grid-area: misionales;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(128, 144, 187, 0.11);
@@ -95,7 +96,6 @@
 .icon-xmark:hover {
   color: red;
 }
-
 .icon-trash {
   color: white;
   transition: all 300ms;
@@ -132,6 +132,34 @@
   height: min-content;
   padding: 0;
 }
+
+.iconos-misionales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  left: 120px;
+
+}
+.iconos-misionales:hover {
+  color: #d84734;
+}
+.iconos-misionales p {
+  margin: 0px 5px 0px 0px;
+  height: min-content;
+  padding: 0;
+}
+
+.icon-back-misional{
+  font-size: 3rem;
+  color:white;
+}
+.icon-back-misional:hover{
+  font-size: 3rem;
+  color:#59ca91;
+}
+
 
 /* Crear*/
 .crear form {
@@ -184,6 +212,8 @@
   align-items: center;
   background-color: rgba(128, 144, 187, 0.11);
   border-radius: 5px;
+  flex-direction: column;
+  position: relative;
 }
 .editar {
   border-radius: 5px;
@@ -202,7 +232,6 @@
   flex-direction: column;
   width: 55%;
 }
-
 .editar form input[type="submit"] {
   width: 100%;
   padding: 5px;
@@ -308,11 +337,12 @@ h3 {
 }
 .procesos-container {
   width: 100%;
-  height: 75%;
+  height: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .procesos {
   width: 19%;
@@ -323,7 +353,7 @@ h3 {
   background-color: #6c89c9;
   color: white;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
   transition: all 300ms;
@@ -381,10 +411,85 @@ h3 {
   background-color: #a9b3c9;
   color: white;
 }
-.procesos::before,
-.procesos-amarillo::before,
-.procesos-naranja::before,
-.procesos-verde::before {
+.procesos-misionales {
+  width: 15%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6c89c9;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 10px;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  transition: all 300ms;
+  position: relative;
+}
+
+.procesos-misionales-verde {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #59ca91;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales-amarillo {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfc236;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales-naranja {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
+
+  width: 15%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1a541;
+  color: white;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 10px;
+  transition: all 300ms;
+  position: relative;
+}
+.procesos-misionales:hover,
+.procesos-misionales-amarillo:hover,
+.procesos-misionales-naranja:hover,
+.procesos-misionales-verde:hover {
+  background-color: #a9b3c9;
+  color: white;
+}
+
+.procesos-misionales-amarillo::before,
+.procesos-misionales-naranja::before,
+.procesos-misionales-verde::before {
   content: "";
   display: block;
   position: absolute;
@@ -394,12 +499,6 @@ h3 {
   height: 7px;
   background-color: #4a5b80;
   transform: translateY(-50%);
-}
-.procesos:last-child:before,
-.procesos-amarillo:last-child:before,
-.procesos-naranja:last-child:before,
-.procesos-verde:last-child:before {
-  display: none; /* Para que la última flecha no se muestre */
 }
 
 .entrada div a {
@@ -455,4 +554,20 @@ h3 {
 .evaluacion div a:hover {
   color: #4a5b80;
   transform: scale(1, 1.1);
+}
+.errores{
+  color: #d84734;
+  border-bottom: 1px dashed #d84734;
+}
+
+.errores-editar{
+  position: absolute;
+  bottom: 0;
+  margin: -2px;
+  color: #ec1e0b;
+}
+
+.back-proceso-misionales{
+  position: absolute;
+  bottom: -19px;
 }

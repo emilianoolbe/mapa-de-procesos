@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../public/Icons';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 export const ProcesosDeApoyo = React.memo(({apoyo, setApoyo}) => {
@@ -41,6 +41,8 @@ export const ProcesosDeApoyo = React.memo(({apoyo, setApoyo}) => {
   if (apoyo !== null && apoyo.length > 0) {
     return (
       <div className='apoyo'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/apoyo`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         <div className='titulos'>
           <h3>Procesos Apoyo</h3>
         </div>
@@ -66,6 +68,7 @@ export const ProcesosDeApoyo = React.memo(({apoyo, setApoyo}) => {
   }else{
     return (
       <div className='apoyo'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/apoyo`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
         <div className='titulos'>
           <h3>Procesos Apoyo</h3>
 

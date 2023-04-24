@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Icons } from '../../../public/Icons';
 import { Link } from 'react-router-dom';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const Salida = React.memo(({salida, setSalida}) => {
 
@@ -40,6 +40,8 @@ export const Salida = React.memo(({salida, setSalida}) => {
   if (salida !== null && salida.length >= 0) {
     return (
       <div className='salida'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/salida`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         {
           salida.map(proceso => {
 
@@ -56,6 +58,8 @@ export const Salida = React.memo(({salida, setSalida}) => {
   }else{
     return(
       <div className='salida'>
+          <Link to={`${import.meta.env.VITE_URL}/crear/salida`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         <div className='entrada-salida'>
           Salida
         </div>

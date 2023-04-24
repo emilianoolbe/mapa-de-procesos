@@ -5,7 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
 import { borradoLocalStorage } from '../../helpers/borradoLocalStorage';
 
-export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, misionales, apoyo, setProcesoEntrada, setSalida, procesoEntrada, salida, evaluacion, setEvaluacion}) => {
+export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, misionales, apoyo, setProcesoEntrada, setSalida, procesoEntrada, salida, evaluacion, setEvaluacion, errores, setErrores}) => {
 
   //Estados
   const [encontrado, setEncontrado] = useState([]);
@@ -13,6 +13,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
   //Efectos 
   useEffect(() => {
     handlerEncontrado();
+    setErrores('')
   }, []);
   
   //Params
@@ -78,32 +79,74 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
      //Si índice es === -1 es porque no se encuentra ese ID en el LOcalStorage
      if (indice === -1) {
 
-      //Guardo en localStorage si se cambia de proceso
-      guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
+      setErrores('No se puede editar - límite de procesos alcanzado')
+      //Actualizo estados
+      if (e.target.proceso.value === 'Proceso Estratégico' && estrategicos.length < 4) {
+         
+          setEstrategicos(elemento => {return [...elemento, procesoAEditar]});
 
-      //Elimino del localStorage anterior
-      borradoLocalStorage(encontrado.proceso, encontrado);
+          //Guardo en localStorage si se cambia de proceso
+          guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
 
-       //Actualizo estados
-      if (e.target.proceso.value === 'Proceso Estratégico') {
+          //Elimino del localStorage anterior
+          borradoLocalStorage(encontrado.proceso, encontrado);
+          setErrores('');
+        
+      }else if(e.target.proceso.value === 'Proceso Misional' && misionales.length < 4){
+         
+          setMisionales(elemento => {return [...elemento, procesoAEditar]});
 
-        setEstrategicos(elemento => {return [...elemento, procesoAEditar]});
+          //Guardo en localStorage si se cambia de proceso
+          guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
 
-      }else if(e.target.proceso.value === 'Proceso Misional'){
+          //Elimino del localStorage anterior
+          borradoLocalStorage(encontrado.proceso, encontrado);
+          setErrores('');
+          
+      }else if(e.target.proceso.value === 'Proceso de Apoyo' && apoyo.length < 4){
 
-        setMisionales(elemento => {return [...elemento, procesoAEditar]});
-
-      }else if(e.target.proceso.value === 'Proceso de Apoyo'){
         setApoyo(elemento => {return [...elemento, procesoAEditar]});
+          
+        //Guardo en localStorage si se cambia de proceso
+        guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
 
-      }else if (e.target.proceso.value === 'Entrada'){
-        setProcesoEntrada(elemento => {return [...elemento, procesoAEditar]});
+        //Elimino del localStorage anterior
+        borradoLocalStorage(encontrado.proceso, encontrado);
+        setErrores('');        
 
-      }else if (e.target.proceso.value === 'Proceso de Evaluación'){
-        setEvaluacion(elemento => {return [...elemento, procesoAEditar]});
+      }else if (e.target.proceso.value === 'Entrada' && procesoEntrada.length < 1){
+
+          setProcesoEntrada(elemento => {return [...elemento, procesoAEditar]});
+            
+          //Guardo en localStorage si se cambia de proceso
+          guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
+
+          //Elimino del localStorage anterior
+          borradoLocalStorage(encontrado.proceso, encontrado);
+          setErrores('');
+
+      }else if (e.target.proceso.value === 'Proceso de Evaluación' && evaluacion.length < 4){
+    
+          setEvaluacion(elemento => {return [...elemento, procesoAEditar]});
+
+          //Guardo en localStorage si se cambia de proceso
+          guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
+
+          //Elimino del localStorage anterior
+          borradoLocalStorage(encontrado.proceso, encontrado);
+          setErrores('');
 
       }else{
-        setSalida(elemento => {return [...elemento, procesoAEditar]});
+        if (salida.length < 1) {
+          setSalida(elemento => {return [...elemento, procesoAEditar]});
+          
+          //Guardo en localStorage si se cambia de proceso
+          guardadoLocalStorage(e.target.proceso.value, procesoAEditar);
+
+          //Elimino del localStorage anterior
+          borradoLocalStorage(encontrado.proceso, encontrado);
+          setErrores('');
+        };
       };
       
     }else{
@@ -137,33 +180,35 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
       };
     
   };
-  return (
-    <div className= 'editar-container'>
-      <div className='editar'>
-      <Link  to={`${import.meta.env.VITE_URL}/`}> <Icons icon={faXmark} css='icon-xmark'/></Link>
-
-        <form  onSubmit={e => handlerEdicion(e, encontrado.id)}>
-          
-          <input type="text" name="titulo" defaultValue={encontrado.titulo}/> 
-
-          <select name="proceso">
-            <option >Entrada</option>
-            <option >Proceso Estratégico</option>
-            <option >Proceso Misional</option>
-            <option >Proceso de Apoyo</option>
-            <option >Proceso de Evaluación</option>
-            <option >Salida</option>
-          </select>
-
-          <select name='color'>
-              <option>Azul</option>
-              <option>Verde</option>
-              <option>Amarillo</option>
-              <option>Naranja</option>
-          </select>
-          <input type="submit" value="Editar" />
-        </form>
-      </div>
-    </div> 
-  )
+    return (
+      <div className= 'editar-container'>
+        <div className='editar'>
+        <Link  to={`${import.meta.env.VITE_URL}/`}> <Icons icon={faXmark} css='icon-xmark'/></Link>
+  
+          <form  onSubmit={e => handlerEdicion(e, encontrado.id)}>
+            
+            <input type="text" name="titulo" defaultValue={encontrado.titulo}/> 
+  
+            <select name="proceso">
+              <option >Entrada</option>
+              <option >Proceso Estratégico</option>
+              <option >Proceso Misional</option>
+              <option >Proceso de Apoyo</option>
+              <option >Proceso de Evaluación</option>
+              <option >Salida</option>
+            </select>
+  
+            <select name='color'>
+                <option>Azul</option>
+                <option>Verde</option>
+                <option>Amarillo</option>
+                <option>Naranja</option>
+            </select>
+            <input type="submit" value="Editar" />
+          </form>
+        </div>
+        <p className="errores-editar">{errores}</p>
+      </div> 
+    )
+  
 };

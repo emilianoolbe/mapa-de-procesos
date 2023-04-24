@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Icons } from "../../../public/Icons";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export const ProcesosEvaluacion = React.memo(({evaluacion, setEvaluacion}) => {
@@ -40,6 +40,8 @@ export const ProcesosEvaluacion = React.memo(({evaluacion, setEvaluacion}) => {
   if (evaluacion !== null && evaluacion.length > 0) {
     return (
       <div className="evaluacion">
+          <Link to={`${import.meta.env.VITE_URL}/crear/evaluacion`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         <div className="titulos">
           <h3>Procesos de Evaluación</h3>
         </div>
@@ -75,6 +77,8 @@ export const ProcesosEvaluacion = React.memo(({evaluacion, setEvaluacion}) => {
   } else {
     return (
       <div className="evaluacion">
+          <Link to={`${import.meta.env.VITE_URL}/crear/evaluacion`}> <Icons css='icon-agregar' icon={faPlus} /></Link> 
+
         <div className="titulos">
           <h3>Procesos de Evaluación</h3>
         </div>
