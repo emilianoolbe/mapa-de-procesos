@@ -139,8 +139,7 @@
   align-items: center;
   position: absolute;
   top: 8px;
-  left: 120px;
-
+  left: 95px;
 }
 .iconos-misionales:hover {
   color: #d84734;
@@ -151,15 +150,13 @@
   padding: 0;
 }
 
-.icon-back-misional{
-  font-size: 3rem;
-  color:white;
+.icon-back-misional {
+  font-size: 2rem;
+  color: white;
 }
-.icon-back-misional:hover{
-  font-size: 3rem;
-  color:#59ca91;
+.icon-back-misional:hover {
+  color: #59ca91;
 }
-
 
 /* Crear*/
 .crear form {
@@ -555,19 +552,19 @@ h3 {
   color: #4a5b80;
   transform: scale(1, 1.1);
 }
-.errores{
+.errores {
   color: #d84734;
   border-bottom: 1px dashed #d84734;
 }
 
-.errores-editar{
+.errores-editar {
   position: absolute;
   bottom: 0;
   margin: -2px;
   color: #ec1e0b;
 }
 
-.back-proceso-misionales{
+.back-proceso-misionales {
   position: absolute;
   bottom: -19px;
 }
