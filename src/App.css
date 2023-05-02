@@ -420,7 +420,6 @@ h3 {
   font-weight: 500;
   margin: 10px;
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
-
   transition: all 300ms;
   position: relative;
 }
@@ -567,4 +566,81 @@ h3 {
 .back-proceso-misionales {
   position: absolute;
   bottom: -19px;
+}
+
+.procesos-container-misionales{
+  grid-area: misionales;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:flex-start
+  
+}
+
+.flecha-container{
+  height: 30px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+}
+
+.flecha1{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 30px;
+  width: 50px;
+  margin: 0px;
+  background-color: #4a5b80;
+  transform: rotate(180deg);
+}
+.linea1{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 50px;
+  width: 20px;
+
+  background-color: #4a5b80;
+  transform: rotate(270deg);
+}
+.flecha2{
+  clip-path: polygon(51% 0, 60% 0, 60% 100%, 51% 100%);
+  height: 100px;
+  width: 50px;
+  margin: 0px;
+  background-color: #4a5b80;
+   transform: rotate(90deg);
+}
+.linea2{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 50px;
+  width: 20px;
+  margin: 30px;
+  background-color: #4a5b80;
+  transform: rotate(270deg);
+}
+.flecha3{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 30px;
+  width: 50px;
+  margin: 0px;
+  background-color: #4a5b80;
+   transform: rotate(360deg);
+}
+.linea3{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 50px;
+  width: 20px;
+  margin: 30px;
+  background-color: #4a5b80;
+  transform: rotate(270deg);
+}
+.linea4{
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 50px;
+  width: 20px;
+
+  background-color: #4a5b80;
+  transform: rotate(270deg);
 }

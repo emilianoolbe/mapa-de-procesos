@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
-import {
-  faTrashCan,
-  faPlus,
-  faArrowLeftLong,
-  faArrowRightLong,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan, faPlus, faArrowLeftLong, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import { edicionLocalStorage } from "../../helpers/edicionLocalStorage";
-import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
-import { borradoLocalStorage } from "../../helpers/borradoLocalStorage";
+
 
 export const ProcesosMisionales = React.memo(
   ({ misionales, setMisionales }) => {
@@ -67,8 +61,11 @@ export const ProcesosMisionales = React.memo(
       //Edito LocalStorage
       edicionLocalStorage("Proceso Misional", indice, indiceDestino);
     };
+    
+
 
     if (misionales !== null && misionales.length > 0) {
+    
       return (
         <div className="misionales">
           <Link to={`${import.meta.env.VITE_URL}/crear/misional`}>
@@ -78,14 +75,14 @@ export const ProcesosMisionales = React.memo(
           <div className="titulos">
             <h3>Procesos Misionales</h3>
           </div>
+          
 
-          <div className="procesos-container">
+          <div className="procesos-container-misionales">
+    
             {misionales.map((proceso, i) => {
               return (
                 <div
-                  onPointerEnter={() => {
-                    editar(proceso.id);
-                  }}
+                  onPointerEnter={() => { editar(proceso.id); }}
                   className={
                     proceso.color && proceso.color == "Amarillo"
                       ? "procesos-misionales-amarillo"
@@ -104,11 +101,7 @@ export const ProcesosMisionales = React.memo(
                   </Link>
 
                   <div className="iconos-misionales">
-                    <p
-                      onClick={() => {
-                        eliminar(proceso.id);
-                      }}
-                    >
+                    <p onClick={() => { eliminar(proceso.id); }}>
                       <Icons css="icon-trash-misionales" icon={faTrashCan} />
                     </p>
                   </div>
@@ -121,9 +114,23 @@ export const ProcesosMisionales = React.memo(
                       <Icons css="icon-back-misional" icon={faArrowRightLong} />
                     </p>
                   </div>
+             
                 </div>
-              );
-            })}
+                
+                );
+              })}
+              <div className="flecha-container">
+         
+                    <span className="linea1"></span>
+                    <span className="flecha1"></span>
+                    <span className="linea2"></span>
+                    <span className="flecha2"></span>
+                    <span className="linea3"></span>
+                    <span className="flecha3"></span>
+                    <span className="linea4"></span>
+                                
+              </div>
+        
           </div>
         </div>
       );
