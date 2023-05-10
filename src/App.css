@@ -138,8 +138,8 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 8px;
-  left: 95px;
+  top: 5px;
+  left: 15px;
 }
 .iconos-misionales:hover {
   color: #d84734;
@@ -426,7 +426,6 @@ h3 {
 
 .procesos-misionales-verde {
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
-
   width: 15%;
   height: 55%;
   display: flex;
@@ -443,7 +442,6 @@ h3 {
 }
 .procesos-misionales-amarillo {
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
-
   width: 15%;
   height: 55%;
   display: flex;
@@ -452,7 +450,7 @@ h3 {
   background-color: #bfc236;
   color: white;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
   transition: all 300ms;
@@ -460,7 +458,6 @@ h3 {
 }
 .procesos-misionales-naranja {
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 13% 50%, 0% 0%);
-
   width: 15%;
   height: 55%;
   display: flex;
@@ -469,7 +466,7 @@ h3 {
   background-color: #f1a541;
   color: white;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   margin: 10px;
   transition: all 300ms;
@@ -565,7 +562,7 @@ h3 {
 
 .back-proceso-misionales {
   position: absolute;
-  bottom: -19px;
+  bottom: -8px;
 }
 
 .procesos-container-misionales{
@@ -583,64 +580,63 @@ h3 {
   height: 30px;
   width: 50%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 55%;
+  justify-content: space-evenly;
+  width: 60%;
 }
 
 .flecha1{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 30px;
-  width: 50px;
+  height: 45px;
+  width: 20%;
   margin: 0px;
   background-color: #4a5b80;
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 .linea1{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 50px;
-  width: 20px;
-
+  height: 80px;
+  width: 5%;
   background-color: #4a5b80;
-  transform: rotate(270deg);
+  transform: rotate(90deg);
 }
 .flecha2{
-  clip-path: polygon(51% 0, 60% 0, 60% 100%, 51% 100%);
-  height: 100px;
-  width: 50px;
+  clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
+  height: 45px;
+  width: 20%;
   margin: 0px;
   background-color: #4a5b80;
-   transform: rotate(90deg);
+  transform: rotate(360deg);
 }
+
 .linea2{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 50px;
+  height: 80px;
   width: 20px;
-  margin: 30px;
+  margin: 0px;
   background-color: #4a5b80;
   transform: rotate(270deg);
 }
 .flecha3{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 30px;
-  width: 50px;
+  height: 45px;
+  width: 20%;
   margin: 0px;
   background-color: #4a5b80;
-   transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 .linea3{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 50px;
+  height: 80px;
   width: 20px;
-  margin: 30px;
+  margin: 0px;
   background-color: #4a5b80;
   transform: rotate(270deg);
 }
 .linea4{
   clip-path: polygon(39% 32%, 39% 41%, 100% 41%, 100% 60%, 39% 60%, 39% 72%, 0% 50%);
-  height: 50px;
-  width: 20px;
-
+  height: 80px;
+  width: 5%;
   background-color: #4a5b80;
   transform: rotate(270deg);
 }
