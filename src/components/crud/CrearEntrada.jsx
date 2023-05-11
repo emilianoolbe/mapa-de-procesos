@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from 'react'
+import { Link, Navigate } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
 
 export const CrearEntrada = ({procesoEntrada, setProcesoEntrada, errores, setErrores}) => {
+  //Estados 
+  const [redireccionar, setRedireccionar] = useState(false);
 
   //Efectos 
   useEffect(() => {
@@ -34,8 +36,12 @@ export const CrearEntrada = ({procesoEntrada, setProcesoEntrada, errores, setErr
     if (procesoEntrada.length == 1) {
        setErrores('Cantidad máxima de procesos alcanzada');
     };
+    setRedireccionar(true)
   };
-
+  
+  if (redireccionar) {
+    return <Navigate to={`${import.meta.env.VITE_URL}/`} />;
+  }
   if (procesoEntrada.length >= 1) {
     return(
       <div className="crear-container">

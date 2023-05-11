@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import { Icons } from '../../../public/Icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { guardadoLocalStorage } from '../../helpers/guardadoLocalStorage';
@@ -9,6 +9,7 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
 
   //Estados
   const [encontrado, setEncontrado] = useState([]);
+  const [redireccionar, setRedireccionar] = useState(false);
 
   //Efectos 
   useEffect(() => {
@@ -178,7 +179,10 @@ export const Editar = ({setEstrategicos, setMisionales, setApoyo, estrategicos, 
       //Guardo el nuevo array en LocalStorage
       localStorage.setItem(e.target.proceso.value, JSON.stringify(procesos));
       };
-    
+    setRedireccionar(true)
+  };
+  if (redireccionar) {
+    return <Navigate to={`${import.meta.env.VITE_URL}/`} />;
   };
     return (
       <div className= 'editar-container'>

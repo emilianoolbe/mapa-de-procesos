@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react'
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from 'react'
+import { Link, Navigate } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
 export const CrearEstrategicos = ({estrategicos, setEstrategicos, errores, setErrores}) => {
-
+  //Estados 
+  const [redireccionar, setRedireccionar] = useState(false);
   //Efectos 
   useEffect(() => {
     setErrores('Cantidad máxima de procesos alcanzada');
@@ -33,8 +34,11 @@ export const CrearEstrategicos = ({estrategicos, setEstrategicos, errores, setEr
     if (estrategicos.length <= 4) {
       setErrores('Cantidad máxima de procesos alcanzada');
     };
+    setRedireccionar(true)
   };
-
+  if (redireccionar) {
+    return <Navigate to={`${import.meta.env.VITE_URL}/`} />;
+  }
   if (estrategicos.length >= 4) {
     return(
       <div className="crear-container">

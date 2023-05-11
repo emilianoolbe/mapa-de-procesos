@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import { Navigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import { Icons } from "../../../public/Icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -6,12 +7,14 @@ import { guardadoLocalStorage } from "../../helpers/guardadoLocalStorage";
 
 
 export const CrearEvaluacion = ({evaluacion, setEvaluacion, errores, setErrores}) => {
+  //Estados 
+  const [redireccionar, setRedireccionar] = useState(false);
 
   //Efectos 
   useEffect(() => {
     setErrores('Cantidad máxima de procesos alcanzada');
   }, []);
-  
+
   //Capturo información del formulario
   const handlerProcesos = (e) => {
     e.preventDefault();
@@ -34,7 +37,11 @@ export const CrearEvaluacion = ({evaluacion, setEvaluacion, errores, setErrores}
     if (evaluacion.length <= 4) {
         setErrores('Cantidad máxima de procesos alcanzada');
     };
+    setRedireccionar(true); 
   };
+  if (redireccionar) {
+    return <Navigate to={`${import.meta.env.VITE_URL}/`} />;
+  }
 
   if (evaluacion.length >= 4) {
     return(

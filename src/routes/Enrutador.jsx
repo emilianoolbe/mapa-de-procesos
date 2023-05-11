@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Editar } from '../components/crud/Editar'
 import { Entrada } from '../components/procesos/Entrada'
 import { Salida } from '../components/procesos/Salida'
-import { ProcesosDeApoyo } from '../components/procesos/ProcesosDeApoyo'
 import { ProcesosEstrategicos } from '../components/procesos/ProcesosEstrategicos'
 import { Mapa } from '../components/Mapa'
 import { ProcesosEvaluacion } from '../components/procesos/ProcesosEvaluacion'
@@ -46,9 +45,6 @@ export const Enrutador = React.memo(
 
                   <Route path={`${import.meta.env.VITE_URL}/editar/:id`} element={<Editar evaluacion={evaluacion} setEvaluacion={setEvaluacion} procesoEntrada={procesoEntrada} setProcesoEntrada={setProcesoEntrada} salida= {salida} setSalida= {setSalida} estrategicos={estrategicos} misionales={misionales} apoyo= {apoyo} setEstrategicos={setEstrategicos} setMisionales= {setMisionales} setApoyo={setApoyo} errores={errores} setErrores={setErrores}/>} />
               </Routes>
-  
-              {/* Procesos de Apoyo */}
-              <ProcesosDeApoyo  apoyo= {apoyo} setApoyo={setApoyo} />
   
               {/* Procesos de Evaluacion */}
               <ProcesosEvaluacion evaluacion={evaluacion} setEvaluacion ={setEvaluacion}/>

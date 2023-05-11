@@ -51,7 +51,8 @@
 }
 /* Crear */
 .crear-container {
-  grid-area: misionales;
+  align-self: flex-start;
+  height: 210%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -202,7 +203,7 @@
 
 /* Editar */
 .editar-container {
-  grid-area: misionales;
+  height: 210%;
   width: 100%;
   display: flex;
   justify-content: center;
